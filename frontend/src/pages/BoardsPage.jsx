@@ -46,7 +46,7 @@ export default function BoardsPage() {
     <div className="app-layout">
       <nav className="top-nav">
         <div className="nav-brand">
-          <span>⚡</span> Forge 2
+          <span>⚡</span> Helix
         </div>
         <div className="nav-actions">
           <a href="/audit" className="nav-link">📊 Audit Log</a>

@@ -30,7 +30,7 @@ export default function AuthPage() {
       <div className="auth-card">
         <div className="auth-logo">
           <span className="logo-icon">⚡</span>
-          <h1>Forge 2</h1>
+          <h1>Helix</h1>
           <p>AI-powered Kanban workspace</p>
         </div>
 

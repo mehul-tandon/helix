@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // Demo user
         $user = User::firstOrCreate(
-            ['email' => 'demo@forge2.dev'],
+            ['email' => 'demo@helix.dev'],
             ['name' => 'Mehul (Demo)', 'password' => Hash::make('password')]
         );
 

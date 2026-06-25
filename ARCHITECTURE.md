@@ -1,8 +1,8 @@
-# 🏗️ Architecture — Forge 2
+# 🏗️ Architecture — Helix
 
 ## System Overview
 
-Forge 2 is a multi-agent AI system built around two specialized agents — **Hermes** (the brain) and **OpenClaw** (the hands) — that collaborate asynchronously via Slack to plan, build, and ship software.
+Helix is a multi-agent AI system built around two specialized agents — **Hermes** (the brain) and **OpenClaw** (the hands) — that collaborate asynchronously via Slack to plan, build, and ship software.
 
 The agents built the Kanban application itself during the qualifier, demonstrating a real agentic software development loop.
 
@@ -153,6 +153,6 @@ Results are uploaded as GitHub Actions artifacts and reported by Hermes in the `
 
 | Service | Platform | URL |
 |---------|----------|-----|
-| Frontend | Vercel | https://forge2.vercel.app |
-| Backend API | Render | https://forge2-api.onrender.com |
+| Frontend | Vercel | https://helix-nine-lovat.vercel.app |
+| Backend API | Render | https://helix-api.onrender.com |
 | Local (Docker) | `docker compose up` | http://localhost:5173 |

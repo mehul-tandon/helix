@@ -1,4 +1,4 @@
-# Agent Run Log — Forge 2 Qualifier
+# Agent Run Log — Helix Qualifier
 
 This is the human-readable chronicle of what the agents actually did during the qualifier build. Machine-readable structured log is in `agent-log/events.jsonl`.
 

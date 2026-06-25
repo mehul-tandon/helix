@@ -1,16 +1,16 @@
-# ⚡ Forge 2 — AI-Powered Kanban Workspace
+# ⚡ Helix — AI-Powered Kanban Workspace
 
 > A multi-agent AI system where **Hermes** (brain) and **OpenClaw** (hands) collaborate via Slack to plan, build, and ship a full-stack Kanban application — autonomously, with a human-in-the-loop approval gate.
 
-[![Security Gate](https://github.com/YOUR_USERNAME/forge-2/actions/workflows/security.yml/badge.svg)](https://github.com/YOUR_USERNAME/forge-2/actions/workflows/security.yml)
+[![Security Gate](https://github.com/mehul-tandon/helix/actions/workflows/security.yml/badge.svg)](https://github.com/mehul-tandon/helix/actions/workflows/security.yml)
 
 ---
 
 ## 🚀 Quick Start (Docker — no PHP/Node required)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/forge-2.git
-cd forge-2
+git clone https://github.com/mehul-tandon/helix.git
+cd helix
 docker compose up
 ```
 
@@ -19,7 +19,21 @@ Then open:
 - **Backend API:** http://localhost:8000/api
 - **Agent Audit Log:** http://localhost:5173/audit
 
-Demo credentials: `demo@forge2.dev` / `password`
+Demo credentials: `demo@helix.dev` / `password`
+
+---
+
+## 🌍 Live Demo
+- **Frontend (Vercel):** https://helix-nine-lovat.vercel.app
+- **Backend API (Render):** https://helix-v70b.onrender.com
+
+---
+
+## 🤖 Free Models & Routing
+This project strictly adheres to the free-stack requirement. Models are routed based on their strengths:
+- **Hermes (Brain/Planning):** `gemini-2.5-flash` via Gemini API. Chosen because of its large context window and strong zero-shot planning capabilities.
+- **OpenClaw (Hands/Coding):** `llama-3.3-70b-versatile` via Groq. Chosen because it is highly capable at generating structured JSON and writing syntax-perfect code, and Groq's inference speed is unmatched.
+- **Fallback:** `qwen2.5-coder` via Ollama for local execution if API rate limits are hit.
 
 ---
 
@@ -92,7 +106,7 @@ python3 agents/router.py plan "Decompose this sprint goal: build a Kanban app"
 ## 📁 Project Structure
 
 ```
-forge-2/
+helix/
 ├── backend/              # Laravel API
 │   ├── app/Models/       # Board, BoardList, Card, Tag
 │   ├── app/Http/Controllers/
@@ -136,4 +150,4 @@ Results are uploaded as GitHub Actions artifacts and reported by Hermes in `#spr
 
 ## 👤 Author
 
-Built by **Mehul** for the NMG Labs Forge 2 Qualifier.
+Built by **Mehul** for the NMG Labs Helix Qualifier.

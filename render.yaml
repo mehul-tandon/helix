@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: helix-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://helix-nine-lovat.vercel.app
+      - key: SANCTUM_STATEFUL_DOMAINS
+        value: helix-nine-lovat.vercel.app
+      - key: SESSION_DRIVER
+        value: file
+      - key: DB_CONNECTION
+        value: sqlite
+
