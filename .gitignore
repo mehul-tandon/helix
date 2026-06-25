@@ -1,0 +1,27 @@
+# Root
+.DS_Store
+*.log
+*.sqlite
+
+# Backend
+backend/.env
+backend/vendor/
+backend/storage/logs/
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
+backend/bootstrap/cache/*.php
+backend/node_modules/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# Agents
+agents/__pycache__/
+agents/*.pyc
+agents/.env
+
+# Docker
+.docker/

@@ -1,0 +1,57 @@
+name: security-gate
+
+on: [push, pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Composer audit
+        run: |
+          cd backend
+          composer install --no-progress --no-interaction
+          composer audit --format=json > ../composer-audit.json || true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: npm audit
+        run: |
+          cd frontend
+          npm install
+          npm audit --json > ../npm-audit.json || true
+
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: json
+          output: trivy-report.json
+          severity: HIGH,CRITICAL
+
+      - name: Upload security reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: |
+            composer-audit.json
+            npm-audit.json
+            trivy-report.json
+
+      - name: Summary
+        run: |
+          echo "## Security Scan Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Composer audit: complete" >> $GITHUB_STEP_SUMMARY
+          echo "- npm audit: complete" >> $GITHUB_STEP_SUMMARY
+          echo "- Trivy FS scan: complete" >> $GITHUB_STEP_SUMMARY
+          echo "Reports uploaded as artifacts." >> $GITHUB_STEP_SUMMARY
